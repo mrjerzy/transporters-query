@@ -8,20 +8,25 @@ public class Result {
 	private double price; 
 	private double princeMin; 
 	private double priceMax;
-	private int distanceInMeters; 
+	private String currencyCode; 
+	private float distanceInMeters;
 	private int waitingTimeInSeconds;
+	private String comment; 
 	
 	
-	
-	public Result(String product, double price, double princeMin, double priceMax, int distanceInMeters,
-			int waitingTimeInSeconds) {
+	public Result(String product, double price, double princeMin, double priceMax, String currencyCode, float distanceInMeters,
+			int waitingTimeInSeconds, String comment) {
 		this.product = product;
 		this.price = price;
 		this.princeMin = princeMin;
 		this.priceMax = priceMax;
+		this.currencyCode = currencyCode; 
 		this.distanceInMeters = distanceInMeters;
 		this.waitingTimeInSeconds = waitingTimeInSeconds;
+		this.comment = comment; 
 	}
+	
+	
 
 	@JsonProperty
 	public String getProduct() {
@@ -64,12 +69,24 @@ public class Result {
 	}
 	
 	@JsonProperty
-	public int getDistanceInMeters() {
+	public String getCurrencyCode() {
+		return currencyCode;
+	}
+
+	@JsonProperty
+	public void setCurrencyCode(String currencyCode) {
+		this.currencyCode = currencyCode;
+	}
+
+	@JsonProperty
+	public float getDistanceInMeters() {
 		return distanceInMeters;
 	}
 	
+	
+	
 	@JsonProperty
-	public void setDistanceInMeters(int distanceInMeters) {
+	public void setDistanceInMeters(float distanceInMeters) {
 		this.distanceInMeters = distanceInMeters;
 	}
 	
@@ -83,4 +100,15 @@ public class Result {
 		this.waitingTimeInSeconds = waitingTimeInSeconds;
 	}
 
+
+	@JsonProperty
+	public String getComment() {
+		return comment;
+	}
+
+	@JsonProperty
+	public void setComment(String comment) {
+		this.comment = comment;
+	}
+	
 }

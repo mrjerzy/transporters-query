@@ -12,6 +12,9 @@ public class UberConfig {
 	@NotEmpty
 	private String uberServerToken;
 	
+	@NotEmpty
+	private String uberClientId;
+	
 	@JsonProperty
 	public String getUberAccessToken() {
 		return uberAccessToken;
@@ -30,6 +33,16 @@ public class UberConfig {
 	@JsonProperty
 	public void setUberServerToken(String uberServerToken) {
 		this.uberServerToken = uberServerToken;
+	}
+
+	@JsonProperty
+	public String getUberClientId() {
+		return uberClientId;
+	}
+
+	@JsonProperty
+	public void setUberClientId(String uberClientId) {
+		this.uberClientId = uberClientId;
 	} 
 
 }

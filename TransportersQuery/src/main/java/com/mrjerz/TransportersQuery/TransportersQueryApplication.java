@@ -24,16 +24,20 @@ public class TransportersQueryApplication extends Application<TransportersQueryC
 	
 		LOGGER.info("Configuration is being read");
 		
-		String uberAccessToken = configuration.getTransportersConfig().getUberConfig().getUberAccessToken(); 
-		String uberServerToken = configuration.getTransportersConfig().getUberConfig().getUberServerToken(); 
+		String uberClientId 		= configuration.getTransportersConfig().getUberConfig().getUberClientId();  
+		String uberAccessToken 	= configuration.getTransportersConfig().getUberConfig().getUberAccessToken(); 
+		String uberServerToken 	= configuration.getTransportersConfig().getUberConfig().getUberServerToken();
 		
+		
+		LOGGER.info("UberClientId:" + uberClientId); 
 		LOGGER.info("UberAccessToken:" + uberAccessToken); 
 		LOGGER.info("UberServerToken:" + uberServerToken); 
+	 
 	
 		
 		final TransportersQueryHealthCheck healthCheck = new TransportersQueryHealthCheck(); 
 		environment.healthChecks().register("Main Health Check", healthCheck);
-		final UberRessource uberResource = new UberRessource(uberAccessToken, uberServerToken); 
+		final UberRessource uberResource = new UberRessource(uberClientId, uberAccessToken, uberServerToken); 
 		environment.jersey().register(uberResource);
 	}
 }
