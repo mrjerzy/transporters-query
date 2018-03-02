@@ -1,0 +1,13 @@
+version: "3"
+services: 
+  transporterquery:
+    image: mrjerz/transporters_check:0.0.1-SNAPSHOT
+    deploy: 
+      replicas: 5
+    ports: 
+    - "8080:8080" 
+    - "8081:8081"
+    networks: 
+    - webnet 
+networks: 
+  webnet: 
